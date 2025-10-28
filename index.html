@@ -1,50 +1,89 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Lista VIP - Black Friday Concurseiro ON</title>
-  <link rel="stylesheet" href="assets/style.css" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lista VIP — Black Friday | Concurseiro ON</title>
+  <meta name="description" content="Entre na lista VIP da Black Friday Concurseiro ON e receba descontos e bônus exclusivos para seus estudos." />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
 </head>
 <body>
-  <div class="container">
-    <h1>🚀 Lista VIP - Black Friday Concurseiro ON</h1>
-    <p>Quer ser o primeiro a receber os descontos e bônus exclusivos da nossa Black Friday?</p>
-    <form>
-      <label>Qual concurso você mais quer passar?</label>
-      <select required>
-        <option value="">Selecione</option>
-        <option>TRT</option>
-        <option>TJ-SP</option>
-        <option>TJ-RS</option>
-        <option>Outro</option>
-      </select>
+  <main class="container" id="main">
+    <header class="header">
+      <h1>🚀 Lista VIP — Black Friday Concurseiro ON</h1>
+      <p class="lead">Seja o primeiro a receber descontos, bônus exclusivos e materiais para turbinar sua aprovação.</p>
+    </header>
 
-      <label>Quanto tempo você estuda para concursos?</label>
-      <select required>
-        <option value="">Selecione</option>
-        <option>Começando agora</option>
-        <option>Menos de 1 ano</option>
-        <option>Mais de 1 ano</option>
-        <option>Já fui aprovado</option>
-      </select>
+    <form id="vipForm" class="form" novalidate>
+      <div class="row">
+        <label for="concurso">Qual concurso você mais quer passar?</label>
+        <select id="concurso" name="concurso" required>
+          <option value="">Selecione</option>
+          <option value="TRT">TRT</option>
+          <option value="TJ-RS">TJ-RS</option>
+          <option value="TJ-SP">TJ-SP</option>
+          <option value="Outro">Outro</option>
+        </select>
+      </div>
 
-      <label>O que mais te impede hoje de alcançar a aprovação?</label>
-      <select required>
-        <option value="">Selecione</option>
-        <option>Falta de tempo</option>
-        <option>Falta de foco</option>
-        <option>Falta de estratégia</option>
-        <option>Falta de material certo</option>
-      </select>
+      <div class="row two">
+        <div>
+          <label for="tempo">Quanto tempo você estuda para concursos?</label>
+          <select id="tempo" name="tempo" required>
+            <option value="">Selecione</option>
+            <option value="Começando agora">Começando agora</option>
+            <option value="Menos de 1 ano">Menos de 1 ano</option>
+            <option value="Mais de 1 ano">Mais de 1 ano</option>
+            <option value="Já fui aprovado">Já fui aprovado</option>
+          </select>
+        </div>
 
-      <input type="text" placeholder="Seu nome completo" required />
-      <input type="email" placeholder="Seu melhor e-mail" required />
-      <input type="tel" placeholder="Seu WhatsApp com DDD" required />
+        <div>
+          <label for="obstaculo">O que mais te impede hoje de alcançar a aprovação?</label>
+          <select id="obstaculo" name="obstaculo" required>
+            <option value="">Selecione</option>
+            <option value="Falta de tempo">Falta de tempo</option>
+            <option value="Falta de foco">Falta de foco</option>
+            <option value="Falta de estratégia">Falta de estratégia</option>
+            <option value="Falta de material certo">Falta de material certo</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="row">
+        <label for="nome">Seu nome completo</label>
+        <input id="nome" name="nome" type="text" placeholder="Seu nome completo" autocomplete="name" required />
+      </div>
+
+      <div class="row">
+        <label for="email">Seu melhor e-mail</label>
+        <input id="email" name="email" type="email" placeholder="seu@exemplo.com" autocomplete="email" required />
+      </div>
+
+      <div class="row">
+        <label for="whatsapp">Seu WhatsApp com DDD</label>
+        <input id="whatsapp" name="whatsapp" type="tel" inputmode="tel" placeholder="11999998888" pattern="[0-9\s()+-]{8,20}" required />
+        <small class="hint">Informe apenas números (com DDD). Ex.: 11999998888</small>
+      </div>
 
       <button class="btn" type="submit">Quero entrar na lista VIP</button>
+
+      <p class="privacy">Ao se inscrever você aceita receber comunicações da Concurseiro ON. Não compartilhamos seus dados.</p>
     </form>
-  </div>
+
+    <div id="success" class="overlay" aria-hidden="true">
+      <div class="card">
+        <h2>Obrigado! 🎉</h2>
+        <p>Você entrou na lista VIP. Em breve enviaremos as ofertas por e-mail e WhatsApp.</p>
+        <button id="closeSuccess" class="btn alt">Fechar</button>
+      </div>
+    </div>
+
+    <footer class="footer">
+      <small>Concurseiro ON — Todos os direitos reservados • Black Friday</small>
+    </footer>
+  </main>
 </body>
 </html>
